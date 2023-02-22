@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Units Converter - Temperature</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+       @font-face { font-family: Chopper; src: url(Chopper.ttf); }
+       @font-face { font-family: Qunaden; src: url(Qunaden.otf) }
+
+       body{
+        font-family: Chopper;
+        background-color: rgb(168, 215, 221);
+       }
+
+       h1{
+        color:rgb(194, 135, 155);
+        font-family: Qunaden
+       }
+
+    </style>
+    <script>
+        function convert() {
+            var fromValue = document.getElementById("valueFrom").value;
+            var fromUnit = document.getElementById("unitFrom").value;
+            var toUnit = document.getElementById("unitTo").value;
+
+            if (fromUnit == toUnit) {
+                document.getElementById("valueTo").value = fromValue;
+            }
+            else if (fromUnit == "F" && toUnit == "°C") {
+                document.getElementById("valueTo").value = fromValue * -17.2;
+            }
+            else if (fromUnit == "K" && toUnit == "°C") {
+                document.getElementById("valueTo").value = fromValue * -272.15;
+            }
+            else if (fromUnit == "K" && toUnit == "F") {
+                document.getElementById("valueTo").value = fromValue * -457.87;
+            }
+            else if (fromUnit == "°C" && toUnit == "F") {
+                document.getElementById("valueTo").value = fromValue * 33.8;
+            }
+            else if (fromUnit == "°C" && toUnit == "K") {
+                document.getElementById("valueTo").value = fromValue * 274.15;
+            }
+            else if (fromUnit == "F" && toUnit == "K") {
+                document.getElementById("valueTo").value = fromValue * 255.928;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Unit Converter - Temperature</h1>
+        <div class="row">
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <a href="length.html"><img src="pictures/length.jpeg" height="200px"></a>
+                        <p>Length</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="temperature.html"><img src="pictures/temp.jpeg" height="200px"></a>
+                        <p>Temperature</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="mass.html"><img src="pictures/weight.jpeg" height="200px"></a>
+                        <p>Mass</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="time.html"><img src="pictures/time.jpeg" height="200px"></a>
+                        <p>Time</p>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-sm-3">
+                <input type="number" id="valueFrom">
+                <select id="unitFrom">
+                    <option id="°C">°C</option>
+                    <option id="F">F</option>
+                    <option id="K">K</option>
+                </select>
+                <br><br>
+                <input type="number" id="valueTo" disabled>
+                <select id="unitTo">
+                    <option id="°C">°C</option>
+                    <option id="F">F</option>
+                    <option id="K">K</option>
+                </select>
+                <br><br>
+                <button type="button" onclick="convert()">Convert</button>
+            </div>
+        </div>
+    </div>
+</body>
